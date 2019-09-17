@@ -6,7 +6,6 @@ import com.yydcyy.mybatis.cfg.Mapper;
 import com.yydcyy.mybatis.io.Resources;
 import org.dom4j.Attribute;
 import org.dom4j.Document;
-import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
@@ -155,7 +154,7 @@ public class XMLConfigBuilder {
                 String queryString = selectElement.getText();
 
                 //创建Key
-                String key = namespace + "," + id;
+                String key = namespace + "." + id;
 
                 //创建Value
                 Mapper mapper = new Mapper();
@@ -232,7 +231,7 @@ public class XMLConfigBuilder {
                     //获取方法的名称
                 String methodName = method.getName();
                 String className = method.getDeclaringClass().getName();
-                String key = className + "," + methodName;
+                String key = className + "." + methodName;
 
                     //给map赋值
                 mappers.put(key, mapper);
