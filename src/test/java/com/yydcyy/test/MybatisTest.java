@@ -38,7 +38,7 @@ public class MybatisTest {
         //IUserDao userDao  = new UserDaoImpl(factory);
 
         //5 使用代理对象执行方法
-        List<User> users = userDao.findAll();
+         List<User> users = userDao.findAll();
 
         //返回结果打印
         for (User user : users){

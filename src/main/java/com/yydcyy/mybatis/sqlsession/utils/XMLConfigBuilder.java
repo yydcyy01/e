@@ -63,7 +63,7 @@ public class XMLConfigBuilder {
                     cfg.setUrl(name);
 
                 if ("username".equals(name))
-                    cfg.setUrl(name);
+                    cfg.setUsername(name);
 
                 if ("password".equals(name))
                     cfg.setPassword(name);

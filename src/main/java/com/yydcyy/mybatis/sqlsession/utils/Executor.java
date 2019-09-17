@@ -48,7 +48,7 @@ public class Executor {
                     String columnName = rsmd.getColumnName(i);
 
                     //根据得到列名，获取每列的值
-                    Object columnVlaue = rs.getObject(columnCount);
+                    Object columnValue = rs.getObject(columnName);
 
                     //给obj赋值：使用Java内省机制（借助PropertyDescriptor实现属性的封装）
                     //要求：实体类的属性和数据库表的列名保持一种
@@ -58,18 +58,17 @@ public class Executor {
                     Method writeMethod = pd.getWriteMethod();
 
                     //把获取的列的值，给对象赋值
-                    writeMethod.invoke(obj, columnVlaue);
+                    writeMethod.invoke(obj, columnValue);
                 }
                 //把赋好值的对象加入到集合中
                 list.add(obj);
             }
             return list;
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }finally {
             release(pstm, rs);
         }
-        return null;//提示必须返回个东西, 但是这一行明明是不可达;
     }
 
     //一个关闭, 封装成方法
