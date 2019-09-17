@@ -22,12 +22,8 @@ public class DataSourceUtil {
         try {
             Class.forName(cfg.getDriver());
             return DriverManager.getConnection(cfg.getUrl(), cfg.getUsername(),cfg.getPassword());
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-
-        return null;
     }
 }

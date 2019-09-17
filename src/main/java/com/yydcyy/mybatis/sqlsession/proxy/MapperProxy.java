@@ -42,7 +42,7 @@ public class MapperProxy implements InvocationHandler {
         Mapper mapper = mappers.get(key);
         //5.判断是否有mapper
         if (mapper == null){
-            throw new  RuntimeException("传参有误");
+            throw new  IllegalArgumentException("传参有误");
         }
         //6.调用工具类执行查询所有
         return new Executor().selectList(mapper,conn);
