@@ -22,4 +22,5 @@ public class DefaultSqlSessionFactory implements SqlSessionFactory {
     public SqlSession openSession() {
         return new DefaultSqlSession(cfg);
     }
+
 }
