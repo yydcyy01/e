@@ -11,9 +11,10 @@ import java.util.List;
 /**
  * @author YYDCYY
  * @create 2019-09-17
+ * 校验 MyBatis 实现功能. 实际开发不需要
  */
-public class UserDaoImpl implements IUserDao {
-    private SqlSessionFactory factory;
+public class UserDaoImpl /*implements IUserDao */{
+    /*private SqlSessionFactory factory;
 
     public UserDaoImpl(SqlSessionFactory factory){
         this.factory = factory;
@@ -31,4 +32,9 @@ public class UserDaoImpl implements IUserDao {
         //3 返回查询结果
         return users;
     }
+
+    @Override
+    public User findById(Integer userId) {
+        return null;
+    }*/
 }

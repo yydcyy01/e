@@ -16,4 +16,20 @@ public interface IUserDao {
     * @return
     */
    List<User> findAll();
+
+   /**
+    * 根据 id 查询
+    * @param userId
+    * @return
+    */
+   User findById(Integer userId);
+
+   /**
+    * 保存用户
+    * @param user
+    * @return
+    */
+   int saveUser(User user);
+
+
 }
