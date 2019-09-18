@@ -31,5 +31,11 @@ public interface IUserDao {
     */
    int saveUser(User user);
 
+   /**
+    * 更新用户
+    * @param user
+    * @return
+    */
+   int updateUser(User user);
 
 }

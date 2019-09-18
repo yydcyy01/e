@@ -75,4 +75,21 @@ public class MybastisCRUDTest {
 
         System.out.println("操作后 :  " + user);
     }
+
+    @Test
+    public void testUpdateUser(){
+        // 1 查 id
+        User user = userDao.findById(52);
+
+        // 2 更新操作
+        user.setAddress("皇后大街东转皇后大街西666");
+        int res = userDao.updateUser(user);
+        System.out.println("res :  " + res);
+
+        /**
+         * id 不存在出异常. 若存在返回 1
+         java.lang.NullPointerException
+         at com.yydcyy.test.MybastisCRUDTest.testUpdateUser(MybastisCRUDTest.java:85)
+         */
+    }
 }
