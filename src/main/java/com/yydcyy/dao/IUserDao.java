@@ -3,7 +3,6 @@ package com.yydcyy.dao;
 import com.yydcyy.domain.QueryVo;
 import com.yydcyy.domain.User;
 
-import javax.management.Query;
 import java.util.List;
 
 /**

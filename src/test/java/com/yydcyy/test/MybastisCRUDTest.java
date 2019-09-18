@@ -135,5 +135,13 @@ public class MybastisCRUDTest {
         }
     }
 
+    @Test
+    public void tesdFindAll(){
+        List<User> users = userDao.findAll();
+        for (User u : users) {
+            System.out.println(u);
+        }
+    }
+
 
 }
