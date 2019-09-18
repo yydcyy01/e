@@ -14,6 +14,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author YYDCYY
@@ -91,5 +92,33 @@ public class MybastisCRUDTest {
          java.lang.NullPointerException
          at com.yydcyy.test.MybastisCRUDTest.testUpdateUser(MybastisCRUDTest.java:85)
          */
+
     }
+
+    /**
+     * 执行结果 res = 1 成功, res = 0 失败
+     */
+    @Test
+    public void testDeleteUser(){
+        int res = userDao.deleteUser((49));
+        System.out.println("执行结果 :  " + res);
+    }
+
+    @Test
+    public void testFindByName(){
+        // 5 执行任务
+        //List<User> users = userDao.findByName("%马%"); // IUserDao.xml  #{username}
+        List<User> users = userDao.findByName("马");   // IUserDao.xml   '%${value}%'
+        for (User user : users){
+            System.out.println(user);
+        }
+    }
+
+    @Test
+    public void testFindTotal(){
+        int total = userDao.findTotal();
+        System.out.println("Total :  " + total);
+    }
+
+
 }

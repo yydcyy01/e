@@ -38,4 +38,9 @@ public interface IUserDao {
     */
    int updateUser(User user);
 
+   int deleteUser(Integer userId);
+
+   List<User> findByName(String username);
+
+   int findTotal();
 }

@@ -25,4 +25,21 @@
             set username = #{username}, birthday=#{birthday}, sex=#{sex},address=#{address} where id =#{id}
     </update>
 
+    <delete id="deleteUser" parameterType="java.lang.Integer">
+        delete from user where id = #{uid}
+    </delete>
+
+    <!--<select id="findByName" resultType="com.yydcyy.domain.User" parameterType="String">
+        select * from user where username like #{username}
+    </select>-->
+
+    <select id="findByName" resultType="com.yydcyy.domain.User" parameterType="String">
+        select * from user where username like '%${value}%'
+    </select>
+
+    <select id = "findTotal" resultType="int">
+        select count(*) from user;
+    </select>
+
+
 </mapper>
