@@ -1,6 +1,7 @@
 package com.yydcyy.test;
 
 import com.yydcyy.dao.IUserDao;
+import com.yydcyy.domain.QueryVo;
 import com.yydcyy.domain.User;
 
 import org.apache.ibatis.io.Resources;
@@ -11,6 +12,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.management.Query;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
@@ -118,6 +120,19 @@ public class MybastisCRUDTest {
     public void testFindTotal(){
         int total = userDao.findTotal();
         System.out.println("Total :  " + total);
+    }
+
+    //**********************************************
+    @Test
+    public void testFindByQueryVo(){
+        QueryVo vo = new QueryVo();
+        User user = new User();
+        user.setUsername("%魔%");
+        vo.setUser(user);
+        List<User> users = userDao.findByVo(vo);
+        for (User u : users) {
+            System.out.println(u);
+        }
     }
 
 

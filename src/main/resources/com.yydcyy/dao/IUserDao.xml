@@ -41,5 +41,10 @@
         select count(*) from user;
     </select>
 
+    <!-- QueryVo 测试类 -->
+    <select id="findByVo" resultType="com.yydcyy.domain.User" parameterType="com.yydcyy.domain.QueryVo">
+        select * from user where username like #{user.username}
+    </select>
+
 
 </mapper>
