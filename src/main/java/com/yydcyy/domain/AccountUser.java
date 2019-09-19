@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @create 2019-09-19
  */
 public class AccountUser extends Account implements Serializable {
-    /*String username;
+    String username;
     String address;
 
 
@@ -34,5 +34,5 @@ public class AccountUser extends Account implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
-    }*/
+    }
 }

@@ -2,9 +2,7 @@ package com.yydcyy.test;
 
 import com.yydcyy.dao.IAccountDao;
 import com.yydcyy.dao.IUserDao;
-import com.yydcyy.domain.Account;
-import com.yydcyy.domain.AccountUser;
-
+import com.yydcyy.dao.impl.UserDaoImpl;
 import com.yydcyy.domain.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -21,13 +19,11 @@ import java.util.List;
 /**
  * @author YYDCYY
  * @create 2019-09-19
- * 一对多账户的操作
  */
-public class AccountTest {
+public class IUserTest {
     private InputStream in;
     private SqlSessionFactory factory;
     private SqlSession session;
-    private IAccountDao accountDao;
     private IUserDao userDao;
 
     @Before
@@ -46,7 +42,7 @@ public class AccountTest {
         session = factory.openSession(true);
 
         //5 创建 Dao 代理对象
-        accountDao = session.getMapper(IAccountDao.class);
+        userDao = session.getMapper(IUserDao.class);
 
 
     }
@@ -62,15 +58,7 @@ public class AccountTest {
 
     @Test
     public void testFindAll(){
-       // List<AccountUser> accountusers = accountDao.findAll();
-        //多对一查询
-       /* List<Account> accountusers = accountDao.findAll();
-        for (Account au : accountusers){
-            System.out.println(au);
-            System.out.println(au.getUser());
-        }*/
-
-       //一对多查询
+        //一对多查询
         List<User> users= userDao.findAll();
         for (User u : users){
             System.out.println(" 用户信息 ");

@@ -11,7 +11,7 @@
         <result column="money" property="money"/>
 
         <!-- 它是用于指定从表方的引用实体属性的 -->
-        <association property="user" javaType="user">
+        <association property="user" javaType="com.yydcyy.domain.User">
             <id column="id" property="id"/>
             <result column="username" property="username"/>
             <result column="sex" property="sex"/>
@@ -27,5 +27,6 @@
             from account a, user u
             where a.uid = u.id;
     </select>
+
 
 </mapper>
