@@ -12,7 +12,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.management.Query;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
@@ -22,7 +22,7 @@ import java.util.List;
  * @author YYDCYY
  * @create 2019-09-18
  */
-public class MybastisCRUDTest {
+public class MybatisCRUDTest {
     InputStream in;
     SqlSessionFactory factory;
     SqlSession session;
@@ -143,5 +143,20 @@ public class MybastisCRUDTest {
         }
     }
 
+
+    //************** day3 测试
+
+    @Test
+    public void testFindByUser(){
+        User user = new User();
+        user.setUsername("%王%");
+        user.setAddress("%北京%");
+
+        // 执行操作
+        List<User> users = userDao.findByUser(user);
+        for (User u : users){
+            System.out.println(u);
+        }
+    }
 
 }

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yydcyy.dao.IUserDao">
     <!--配置查询所有-->
-  <!--  <select id="findAll" resultType="com.yydcyy.domain.User">
+   <!-- <select id="findAll" resultType="com.yydcyy.domain.User">
         select * from user
     </select>-->
 
@@ -60,5 +60,14 @@
         select * from user
     </select>
 
+    <select id = "findByUser" resultType="com.yydcyy.domain.User" parameterType="com.yydcyy.domain.User">
+        select * from user where 1 = 1
+        <if test="username != null and username !=''" >
+            and username like #{username}
+        </if>
+        <if test="address != null">
+            and address like #{address}
+        </if>
+    </select>
 
 </mapper>

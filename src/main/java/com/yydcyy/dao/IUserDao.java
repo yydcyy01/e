@@ -48,5 +48,9 @@ public interface IUserDao {
    //***********************
    List<User> findByVo(QueryVo vo);
 
+   //************************8
+   List<User> findByUser(User user);
+
+
 
 }
