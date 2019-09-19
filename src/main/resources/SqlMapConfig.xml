@@ -23,6 +23,8 @@
 
     <!-- 指定映射配置文件的位置，映射配置文件指的是每个dao独立的配置文件 -->
     <mappers>
-        <mapper resource="com.yydcyy/dao/IUserDao.xml"/>
+        <mapper resource="com.yydcyy/dao/IAccountDao.xml"/>
+            <!--<package name="com.yydcyy/dao"/>-->
+        <!--<package name="com.yydcyy.dao.IAccountDao"/>-->
     </mappers>
 </configuration>

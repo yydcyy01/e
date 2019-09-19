@@ -1,0 +1,5 @@
+现在企业中多用 po 方式输出. 及一对多关系时 生成 AccountUser, 继承 Account , 添加 user 信息.  覆写 toString : super()  + 用户信息
+            IAccountDao 返回 List<AccountUser> findAll();
+            对应配置文件 : IAccountDao.xml
+
+      还有另一种方式: mapper

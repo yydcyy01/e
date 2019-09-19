@@ -178,4 +178,5 @@ public class MybatisCRUDTest {
             System.out.println(u);
         }
     }
+
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yydcyy.dao.IAccountDao">
+
+    <resultMap type="com.yydcyy.domain.Account" id="accountMap">
+        <id column="aid" property="id"/>
+        <result column="uid" property="uid"/>
+        <result column="money" property="money"/>
+
+        <!-- 它是用于指定从表方的引用实体属性的 -->
+        <association property="user" javaType="user">
+            <id column="id" property="id"/>
+            <result column="username" property="username"/>
+            <result column="sex" property="sex"/>
+            <result column="birthday" property="birthday"/>
+            <result column="address" property="address"/>
+        </association>
+    </resultMap>
+
+    <!--配置查询所有-->
+   <!-- <select id="findAll" resultType="com.yydcyy.domain.AccountUser" > -->
+    <select id="findAll" resultMap="accountMap" >
+        select a.*, u.username, u.address
+            from account a, user u
+            where a.uid = u.id;
+    </select>
+
+</mapper>
