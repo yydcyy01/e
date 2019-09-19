@@ -1,6 +1,7 @@
 package com.yydcyy.dao;
 
-import com.yydcyy.domain.QueryVo;
+import com.yydcyy.domain.QueryVoIds;
+import com.yydcyy.domain.QueryVoUser;
 import com.yydcyy.domain.User;
 
 import java.util.List;
@@ -46,11 +47,12 @@ public interface IUserDao {
    int findTotal();
 
    //***********************
-   List<User> findByVo(QueryVo vo);
+   List<User> findByVo(QueryVoUser vo);
 
    //************************8
    List<User> findByUser(User user);
 
+   List<User> findInIds(QueryVoIds vo);
 
 
 }

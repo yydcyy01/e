@@ -6,7 +6,7 @@ import java.io.Serializable;
  * @author YYDCYY
  * @create 2019-09-18
  */
-public class QueryVo implements Serializable {
+public class QueryVoUser implements Serializable {
     private User user;
 
     public User getUser() {

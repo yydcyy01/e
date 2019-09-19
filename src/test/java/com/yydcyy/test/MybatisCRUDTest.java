@@ -1,7 +1,8 @@
 package com.yydcyy.test;
 
 import com.yydcyy.dao.IUserDao;
-import com.yydcyy.domain.QueryVo;
+import com.yydcyy.domain.QueryVoIds;
+import com.yydcyy.domain.QueryVoUser;
 import com.yydcyy.domain.User;
 
 import org.apache.ibatis.io.Resources;
@@ -15,6 +16,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -125,7 +127,7 @@ public class MybatisCRUDTest {
     //**********************************************
     @Test
     public void testFindByQueryVo(){
-        QueryVo vo = new QueryVo();
+        QueryVoUser vo = new QueryVoUser();
         User user = new User();
         user.setUsername("%魔%");
         vo.setUser(user);
@@ -159,4 +161,21 @@ public class MybatisCRUDTest {
         }
     }
 
+
+    @Test
+    public void testFindInIds(){
+        List<Integer> ids = new ArrayList<>();
+        ids.add(41);
+        ids.add(42);
+        ids.add(43);
+        ids.add(45);
+        ids.add(46);
+
+        QueryVoIds voIds = new QueryVoIds();
+        voIds.setIds(ids);
+        List<User> users = userDao.findInIds(voIds);
+        for (User u : users){
+            System.out.println(u);
+        }
+    }
 }

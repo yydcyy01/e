@@ -1,14 +1,5 @@
 package com.yydcyy.dao.impl;
 
-import com.yydcyy.dao.IUserDao;
-import com.yydcyy.domain.QueryVo;
-import com.yydcyy.domain.User;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.defaults.DefaultSqlSession;
-
-import java.util.List;
-
 /**
  * @author YYDCYY
  * @create 2019-09-17

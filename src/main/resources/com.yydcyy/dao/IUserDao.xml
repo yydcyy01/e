@@ -42,7 +42,7 @@
     </select>
 
     <!-- QueryVo 测试类 -->
-    <select id="findByVo" resultType="com.yydcyy.domain.User" parameterType="com.yydcyy.domain.QueryVo">
+    <select id="findByVo" resultType="com.yydcyy.domain.User" parameterType="com.yydcyy.domain.QueryVoUser">
         select * from user where username like #{user.username}
     </select>
 
@@ -69,5 +69,23 @@
             and address like #{address}
         </if>
     </select>
+
+    <!--  抽取重复的sql语句 -->
+    <sql id="defaultUser">
+        select * from user
+    </sql>
+
+
+    <select id = "findInIds" resultType="com.yydcyy.domain.User" parameterType="com.yydcyy.domain.QueryVoIds">
+        <include refid="defaultUser" />
+        <where>
+            <if test="ids != null and ids.size() > 0" >
+                <foreach collection="ids" open ="id in ( " close =")" item="userid" separator=",">
+                #{userid}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
 
 </mapper>
