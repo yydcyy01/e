@@ -75,7 +75,10 @@
         select * from user
     </sql>
 
+    <!--parameterType 将会传入这条语句的参数类的完全限定名或别名。这个属性是可选的，因为 MyBatis 可以通过类型处理器（TypeHandler） 推断出具体传入语句的参数，默认值为未设置（unset）。-->
+<!-- resultType  从这条语句中返回的期望类型的类的完全限定名或别名。 注意如果返回的是集合，那应该设置为集合包含的类型，而不是集合本身。可以使用 resultType 或 resultMap，但不能同时使用。
 
+外部 resultMap 的命名引用。结果集的映射是 MyBatis 最强大的特性，如果你对其理解透彻，许多复杂映射的情形都能迎刃而解。可以使用 resultMap 或 resultType，但不能同时使用。 -->
     <select id = "findInIds" resultType="com.yydcyy.domain.User" parameterType="com.yydcyy.domain.QueryVoIds">
         <include refid="defaultUser" />
         <where>
