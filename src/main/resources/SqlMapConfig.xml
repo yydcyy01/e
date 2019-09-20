@@ -4,6 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <!-- mybatis的主配置文件 -->
 <configuration>
+
+    <!-- 这个是有顺序要求的, 应放在环境配置前 -->
+    <settings>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+
+
+
     <!-- 配置环境 -->
     <environments default="mysql">
         <!-- 配置mysql的环境-->
@@ -26,6 +35,11 @@
             <!--<package name="com.yydcyy/dao/*.xml"/> 这种方式行不通, 提示下面的报错ß
             org.apache.ibatis.binding.BindingException: Type interface com.yydcyy.dao.IAccountDao is not known to the MapperRegistry.
             -->
-       <mapper resource="com.yydcyy.dao/IRoleDao.xml"></mapper>
+       <mapper resource="com.yydcyy.dao/IRoleDao.xml"/>
+       <mapper resource="com.yydcyy.dao/IUserDao.xml"/>
+       <mapper resource="com.yydcyy.dao/IAccountDao.xml"/>
     </mappers>
+
+
+
 </configuration>

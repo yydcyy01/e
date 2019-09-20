@@ -28,7 +28,6 @@ public class AccountTest {
     private SqlSessionFactory factory;
     private SqlSession session;
     private IAccountDao accountDao;
-    private IUserDao userDao;
 
     @Before
     public void init() throws IOException {
@@ -71,11 +70,14 @@ public class AccountTest {
         }*/
 
        //一对多查询
-        List<User> users= userDao.findAll();
+       /* List<User> users= userDao.findAll();
         for (User u : users){
             System.out.println(" 用户信息 ");
             System.out.println(u);
             System.out.println(u.getAccounts());
-        }
+        }*/
+
+       List<Account> accountUsers = accountDao.findAll();
+
     }
 }

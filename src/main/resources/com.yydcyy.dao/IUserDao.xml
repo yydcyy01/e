@@ -8,9 +8,10 @@
         select * from user
     </select>-->
 
-   <!-- <select id="findById" resultType="com.yydcyy.domain.User" parameterType="int">
-        select * from user where id = #{userid}
-    </select>-->
+    <select id="findById" resultType="com.yydcyy.domain.User" parameterType="int">
+        /*select * from user where id = #{userid}*/
+        select * from user where id = #{uid}
+    </select>
 
     <insert id="saveUser" parameterType="com.yydcyy.domain.User">
         <!-- 配置插入操作后，获取插入数据的id -->
