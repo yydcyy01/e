@@ -11,8 +11,6 @@
         <setting name="aggressiveLazyLoading" value="false"/>
     </settings>
 
-
-
     <!-- 配置环境 -->
     <environments default="mysql">
         <!-- 配置mysql的环境-->
@@ -32,14 +30,10 @@
 
     <!-- 指定映射配置文件的位置，映射配置文件指的是每个dao独立的配置文件 -->
     <mappers>
-            <!--<package name="com.yydcyy/dao/*.xml"/> 这种方式行不通, 提示下面的报错ß
-            org.apache.ibatis.binding.BindingException: Type interface com.yydcyy.dao.IAccountDao is not known to the MapperRegistry.
-            -->
+            <!--<package name="com.yydcyy/dao/*.xml"/> 这种方式行不通, 提示下面的报错ß -->
        <mapper resource="com.yydcyy.dao/IRoleDao.xml"/>
        <mapper resource="com.yydcyy.dao/IUserDao.xml"/>
        <mapper resource="com.yydcyy.dao/IAccountDao.xml"/>
     </mappers>
-
-
 
 </configuration>

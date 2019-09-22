@@ -1,22 +1,27 @@
 package com.yydcyy.mybatis.cfg;
 
- // Mapper 类型 自己定义, 不是 apache.ibatis 下的
-
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author YYDCYY
- * @create 2019-09-17
- * 自定义 mybatis 的配置类
+ * 自定义mybatis的配置类
  */
 public class Configuration {
+
     private String driver;
     private String url;
     private String username;
     private String password;
 
-    private Map<String, Mapper> mappers = new HashMap<>();
+    private Map<String, com.yydcyy.mybatis.cfg.Mapper> mappers = new HashMap<String,Mapper>();
+
+    public Map<String, com.yydcyy.mybatis.cfg.Mapper> getMappers() {
+        return mappers;
+    }
+
+    public void setMappers(Map<String, Mapper> mappers) {
+        this.mappers.putAll(mappers);//此处需要使用追加的方式
+    }
 
     public String getDriver() {
         return driver;
@@ -48,13 +53,5 @@ public class Configuration {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Map<String, Mapper> getMappers() {
-        return mappers;
-    }
-
-    public void setMappers(Map<String, Mapper> mappers) {
-        this.mappers = mappers;
     }
 }

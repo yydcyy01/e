@@ -6,10 +6,10 @@ import java.util.List;
 
 import com.yydcyy.dao.IUserDao;
 import com.yydcyy.domain.User;
-import com.yydcyy.mybatis.SqlSession;
-import com.yydcyy.mybatis.SqlSessionFactory;
-import com.yydcyy.mybatis.SqlSessionFactoryBuilder;
 import com.yydcyy.mybatis.io.Resources;
+import com.yydcyy.mybatis.sqlsession.SqlSession;
+import com.yydcyy.mybatis.sqlsession.SqlSessionFactory;
+import com.yydcyy.mybatis.sqlsession.SqlSessionFactoryBuilder;
 
 /**
  * @author YYDCYY

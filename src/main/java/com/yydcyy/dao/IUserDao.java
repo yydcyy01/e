@@ -1,5 +1,6 @@
 package com.yydcyy.dao;
 
+import com.yydcyy.domain.Account;
 import com.yydcyy.domain.QueryVoIds;
 import com.yydcyy.domain.QueryVoUser;
 import com.yydcyy.domain.User;

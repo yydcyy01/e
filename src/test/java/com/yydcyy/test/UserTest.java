@@ -1,33 +1,25 @@
 package com.yydcyy.test;
 
-import com.yydcyy.dao.IAccountDao;
 import com.yydcyy.dao.IUserDao;
-import com.yydcyy.domain.Account;
-import com.yydcyy.domain.AccountUser;
-
-import com.yydcyy.domain.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 
 /**
  * @author YYDCYY
- * @create 2019-09-19
- * 一对多账户的操作
+ * @create 2019-09-22
  */
-public class AccountTest {
+public class UserTest {
     private InputStream in;
     private SqlSessionFactory factory;
     private SqlSession session;
-    private IAccountDao accountDao;
+    private IUserDao userDao;
 
     @Before
     public void init() throws IOException {
@@ -45,7 +37,7 @@ public class AccountTest {
         session = factory.openSession(true);
 
         //5 创建 Dao 代理对象
-        accountDao = session.getMapper(IAccountDao.class);
+        userDao = session.getMapper(IUserDao.class);
 
 
     }
@@ -57,30 +49,5 @@ public class AccountTest {
         //7 释放资源
         session.close();
         in.close();
-    }
-
-    /**
-     * 编写测试只查账户信息不查用户信息。
-     */
-    @Test
-    public void testFindAll(){
-       // List<AccountUser> accountusers = accountDao.findAll();
-        //多对一查询
-       List<Account> accountusers = accountDao.findAll();
-        for (Account au : accountusers){
-            System.out.println(au);
-            System.out.println(au.getUser());
-        }
-
-       //一对多查询
-       /* List<User> users= userDao.findAll();
-        for (User u : users){
-            System.out.println(" 用户信息 ");
-            System.out.println(u);
-            System.out.println(u.getAccounts());
-        }*/
-
-       List<Account> accounts = accountDao.findAll();
-
     }
 }

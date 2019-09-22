@@ -14,4 +14,6 @@ import java.util.List;
 public interface IAccountDao {
    // List<AccountUser> findAll();
     List<Account> findAll();
+
+    List<Account> findByUid(Integer uid);
 }

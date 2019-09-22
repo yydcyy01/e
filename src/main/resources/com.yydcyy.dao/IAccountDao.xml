@@ -12,12 +12,13 @@
 
         <!-- 它是用于指定从表方的引用实体属性的 -->
         <!--select： 填写我们要调用的 select 映射的 id        column ： 填写我们要传递给 select 映射的参数-->
-        <association property="user" javaType="com.yydcyy.domain.User"   select="com.yydcyy.dao.IUserDao.findById" column="uid">
-            <!--<id column="id" property="id"/>
+        <!--<association property="user" javaType="com.yydcyy.domain.User"   select="com.yydcyy.dao.IUserDao.findById" column="uid">-->
+        <association property="user" javaType="com.yydcyy.domain.User" >
+            <id column="id" property="id"/>
             <result column="username" property="username"/>
             <result column="sex" property="sex"/>
             <result column="birthday" property="birthday"/>
-            <result column="address" property="address"/>-->
+            <result column="address" property="address"/>
         </association>
     </resultMap>
 
@@ -28,5 +29,8 @@
             where a.uid = u.id;
     </select>-->
 
+    <select id="findAll" resultMap = "accountMap">
+        select * from account
+    </select>
 
 </mapper>

@@ -62,7 +62,7 @@ public class MybatisCRUDTest {
     @Test
     public void testFindOne(){
         //6 执行操作
-        User user = userDao.findById(41);
+        User user = userDao.findById(51);
         System.out.println(user);
     }
 
@@ -104,14 +104,14 @@ public class MybatisCRUDTest {
      */
     @Test
     public void testDeleteUser(){
-        int res = userDao.deleteUser((49));
+        int res = userDao.deleteUser((50));
         System.out.println("执行结果 :  " + res);
     }
 
     @Test
     public void testFindByName(){
         // 5 执行任务
-        //List<User> users = userDao.findByName("%马%"); // IUserDao.xml  #{username}
+       // List<User> users = userDao.findByName("%马%"); // IUserDao.xml  #{username}
         List<User> users = userDao.findByName("马");   // IUserDao.xml   '%${value}%'
         for (User user : users){
             System.out.println(user);

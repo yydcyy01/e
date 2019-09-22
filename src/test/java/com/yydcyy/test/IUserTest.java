@@ -56,6 +56,10 @@ public class IUserTest {
         in.close();
     }
 
+    /**
+     *   查询每一个 user 对应账户信息
+     *   实现一对多查询.
+     */
     @Test
     public void testFindAll(){
         //一对多查询
